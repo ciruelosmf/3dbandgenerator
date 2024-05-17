@@ -122,9 +122,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                   bevelEnabled={false}
                   bevelSize={0}
                   font="asd.json"
-                  scale={[1/4 , 1/4 , 1/4 ]}
+                  scale={[1/8 , 1/8 , 1/8 ]}
                   height={0}
-                  position={[1, 12, 1]}
+                  position={[3, 22, 1]}
                   rotation={[0, 0, 0]}
                 >
                   {`JULIALAB\n  code\nsandbox`}
