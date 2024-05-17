@@ -18,7 +18,7 @@ useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e538
 
 
 const ClickableText3D = ({ url, children, dragged, ...rest }) => {
-  const handleClick = () => {
+  const handleClick = (event) => {
     if (!event.isDragging) {
       window.open(url, "_blank");
     }
@@ -152,7 +152,7 @@ console.log(dragged,"dragged");
                 font="asd.json"
                 scale={[1 / 12, 1 / 12, 1]}
                 height={0.01}
-                position={[-0.96, 3.75, 1.45]}
+                position={[0, 0.5, 0]}
                 rotation={[0, 0, 0]}
                 dragged={dragged}
               >
