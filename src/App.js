@@ -10,6 +10,34 @@ extend({ MeshLineGeometry, MeshLineMaterial })
 useGLTF.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb')
 useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg')
 
+
+
+
+
+
+
+
+const ClickableText3D = ({ url, children, dragged, ...rest }) => {
+  const handleClick = () => {
+    if (!dragged) {
+      window.open(url, "_blank");
+    }
+  };
+
+  return (
+    <Text3D onClick={handleClick} {...rest} style={{ cursor: "pointer" }}>
+      {children}
+    </Text3D>
+  );
+};
+
+
+
+
+
+
+
+
 export default function App() {
   const { debug } = useControls({ debug: false })
   return (
@@ -39,7 +67,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)
   const [hovered, hover] = useState(false)
-
+console.log(dragged,"dragged");
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
@@ -117,19 +145,19 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
 
 
             <Center>
-               
-                <Text3D
-                  bevelEnabled={false}
-                  bevelSize={0}
-                  font="asd.json"
-                  scale={[1/12 , 1/12 , 1/12 ]}
-                  height={0}
-                  position={[-0.96, 2.1, 1.25]}
-                  rotation={[0, 0, 0]}
-                >
-                  {`JULIALAB\n  code\nsandbox`}
-                </Text3D>
-               
+              <ClickableText3D
+                url="https://example.com"
+                bevelEnabled={false}
+                bevelSize={0}
+                font="asd.json"
+                scale={[1 / 12, 1 / 12, 1]}
+                height={0.01}
+                position={[-0.96, 2.75, 1.35]}
+                rotation={[0, 0, 0]}
+                dragged={dragged}
+              >
+                {`JULIALAB\nsandbox`}
+              </ClickableText3D>
             </Center>
 
 
