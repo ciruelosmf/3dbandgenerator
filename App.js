@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
+import { Text3D, useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 import { useControls } from 'leva'
@@ -13,7 +13,7 @@ useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e538
 export default function App() {
   const { debug } = useControls({ debug: false })
   return (
-    <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
+    <Canvas camera={{ position: [0, -1, 4], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics debug={debug} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
@@ -110,6 +110,29 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+
+
+
+            <Center bottom right>
+              <Resize key={4} maxHeight={0.45} maxWidth={0.925}>
+                <Text3D
+                  bevelEnabled={false}
+                  bevelSize={0}
+                  font="asd.json"
+                  scale={[1 / 4, 1 / 4, 1 / 4]}
+                  height={0}
+                  position={[-1, 34, 1]}
+                  rotation={[0, 0, 0]}
+                >
+                  {`JULIALAB\n  code\nsandbox`}
+                </Text3D>
+              </Resize>
+            </Center>
+
+
+
+
+
           </group>
         </RigidBody>
       </group>
