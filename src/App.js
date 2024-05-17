@@ -13,7 +13,7 @@ useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e538
 export default function App() {
   const { debug } = useControls({ debug: false })
   return (
-    <Canvas camera={{ position: [0, 0, 4], fov: 25 }}>
+    <Canvas camera={{ position: [0, 0, 8], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics debug={debug} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
@@ -122,9 +122,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                   bevelEnabled={false}
                   bevelSize={0}
                   font="asd.json"
-                  scale={[1 , 1 , 1 ]}
+                  scale={[1/4 , 1/4 , 1/4 ]}
                   height={0}
-                  position={[1, 1, 1]}
+                  position={[1, 12, 1]}
                   rotation={[0, 0, 0]}
                 >
                   {`JULIALAB\n  code\nsandbox`}
