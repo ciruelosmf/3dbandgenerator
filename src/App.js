@@ -144,7 +144,7 @@ console.log(dragged,"dragged");
 
 
 
-            <Center>
+             
               <ClickableText3D
                 url="https://example.com"
                 bevelEnabled={false}
@@ -158,7 +158,7 @@ console.log(dragged,"dragged");
               >
                 {`JULIALAB \n sandbox`}
               </ClickableText3D>
-            </Center>
+             
 
 
 
