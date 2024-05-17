@@ -13,7 +13,7 @@ useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e538
 export default function App() {
   const { debug } = useControls({ debug: false })
   return (
-    <Canvas camera={{ position: [0, -1, 4], fov: 25 }}>
+    <Canvas camera={{ position: [0, -1, 1], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics debug={debug} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
@@ -34,7 +34,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3() // prettier-ignore
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
   const { nodes, materials } = useGLTF('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb')
-  const texture = useTexture('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg')
+  const texture = useTexture('https://caminodelcannabissanluis.vercel.app/thumb_jardin.jpg')
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)
@@ -119,9 +119,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                   bevelEnabled={false}
                   bevelSize={0}
                   font="asd.json"
-                  scale={[1 / 4, 1 / 4, 1 / 4]}
+                  scale={[1 , 1 , 1 ]}
                   height={0}
-                  position={[-1, 10, 1]}
+                  position={[1, 1, 1]}
                   rotation={[0, 0, 0]}
                 >
                   {`JULIALAB\n  code\nsandbox`}
