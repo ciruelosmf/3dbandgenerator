@@ -124,7 +124,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                   font="asd.json"
                   scale={[1/8 , 1/8 , 1/8 ]}
                   height={0}
-                  position={[3, 22, 1]}
+                  position={[9, 42, 1]}
                   rotation={[0, 0, 0]}
                 >
                   {`JULIALAB\n  code\nsandbox`}
